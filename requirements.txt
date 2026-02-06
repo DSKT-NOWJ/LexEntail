@@ -1,0 +1,26 @@
+# Core dependencies for COLIEE Task 2
+torch
+transformers[torch]
+sentence_transformers
+datasets
+
+# BGE models (for bge-m3 and reranker training)
+FlagEmbedding
+
+# Data processing
+numpy
+pandas
+spacy
+
+# Information retrieval
+pyserini
+
+# Utilities
+tqdm
+scikit-learn
+
+jsonlines
+wandb
+
+# Optional: For BGE memory optimization
+deepspeed

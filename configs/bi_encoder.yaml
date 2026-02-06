@@ -1,0 +1,97 @@
+---
+google-bert/bert-base-multilingual-cased:
+  ARCHITECTURE: "bi_encoder"
+  PRETRAINED_MODEL: "google-bert/bert-base-multilingual-cased"
+  TOKENIZER_PATH: "google-bert/bert-base-multilingual-cased"
+  TRAINING_SAMPLES_FILE: "dataset/task2_train_negatives_2025.json"
+  
+  LOSS_FUNCTION: "contrastive"
+  AUGMENTATION_TYPE: "standard"
+  DYNAMIC_SAMPLING: true
+  DYNAMIC_SAMPLING_STRATEGY: "hard"
+  MAX_NEGATIVES_PER_POSITIVE: 5
+  
+  NUM_EPOCHS: 3
+  TRAIN_BATCH_SIZE: 32
+  EVAL_BATCH_SIZE: 32
+  GRADIENT_ACCUMULATION_STEPS: 1
+  LOGGING_STRATEGY: "steps"
+  LOGGING_STEPS: 100
+  OUTPUT_DIR: "checkpoints"
+  IS_FP16: true
+
+  YEAR: "2025"
+
+
+FacebookAI/xlm-roberta-large:
+  ARCHITECTURE: "bi_encoder"
+  PRETRAINED_MODEL: "FacebookAI/xlm-roberta-large"
+  TOKENIZER_PATH: "FacebookAI/xlm-roberta-large"
+  TRAINING_SAMPLES_FILE: "dataset/task2_train_negatives_2025.json"
+
+  LOSS_FUNCTION: "multiple_negatives_ranking"
+  AUGMENTATION_TYPE: "standard"
+  DYNAMIC_SAMPLING: true
+  DYNAMIC_SAMPLING_STRATEGY: "hard"
+  MAX_NEGATIVES_PER_POSITIVE: 5
+
+  NUM_EPOCHS: 5
+  TRAIN_BATCH_SIZE: 8
+  EVAL_BATCH_SIZE: 16
+  GRADIENT_ACCUMULATION_STEPS: 2
+  LOGGING_STRATEGY: "steps"
+  LOGGING_STEPS: 200
+  OUTPUT_DIR: "checkpoints"
+  IS_FP16: true
+  LEARNING_RATE: 2e-05
+  WARMUP_STEPS: 1000
+
+  YEAR: "2025"
+
+
+intfloat/multilingual-e5-large:
+  ARCHITECTURE: "bi_encoder"
+  PRETRAINED_MODEL: "intfloat/multilingual-e5-large"
+  TOKENIZER_PATH: "intfloat/multilingual-e5-large"
+  TRAINING_SAMPLES_FILE: "dataset/task2_train_negatives_2025.json"
+
+  LOSS_FUNCTION: "contrastive"
+  AUGMENTATION_TYPE: "standard"
+  DYNAMIC_SAMPLING: true
+  DYNAMIC_SAMPLING_STRATEGY: "hard"
+  MAX_NEGATIVES_PER_POSITIVE: 5
+  
+  NUM_EPOCHS: 3
+  TRAIN_BATCH_SIZE: 24
+  EVAL_BATCH_SIZE: 24
+  GRADIENT_ACCUMULATION_STEPS: 1
+  LOGGING_STRATEGY: "steps"
+  LOGGING_STEPS: 200
+  OUTPUT_DIR: "checkpoints"
+  IS_FP16: true
+  
+  YEAR: "2025"
+
+
+BAAI/bge-m3:
+  ARCHITECTURE: "bi_encoder"
+  PRETRAINED_MODEL: "BAAI/bge-m3"
+  TOKENIZER_PATH: "BAAI/bge-m3"
+  TRAINING_SAMPLES_FILE: "dataset/task2_train_negatives_2025.json"
+  
+  LOSS_FUNCTION: "contrastive"
+  AUGMENTATION_TYPE: "standard"
+  DYNAMIC_SAMPLING: true
+  DYNAMIC_SAMPLING_STRATEGY: "hard"
+  MAX_NEGATIVES_PER_POSITIVE: 5
+  
+  NUM_EPOCHS: 1
+  TRAIN_BATCH_SIZE: 2
+  EVAL_BATCH_SIZE: 2
+  GRADIENT_ACCUMULATION_STEPS: 1
+  LOGGING_STRATEGY: "steps"
+  LOGGING_STEPS: 300
+  OUTPUT_DIR: "checkpoints"
+  IS_FP16: true
+  
+  YEAR: "2025"

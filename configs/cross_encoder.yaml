@@ -1,0 +1,44 @@
+
+castorini/monot5-base-msmarco:
+  ARCHITECTURE: "cross_encoder"
+  PRETRAINED_MODEL: "castorini/monot5-base-msmarco"
+  TOKENIZER_PATH: "castorini/monot5-base-msmarco"
+  TRAINING_SAMPLES_FILE: "dataset/task2_train_negatives_2025.json"
+
+  LOSS_FUNCTION: "cross_entropy"
+  MODEL_TYPE: "seq2seq"
+  DYNAMIC_SAMPLING_STRATEGY: "hard"
+  MAX_NEGATIVES_PER_POSITIVE: 5
+
+  NUM_EPOCHS: 3
+  TRAIN_BATCH_SIZE: 2
+  EVAL_BATCH_SIZE: 2
+  GRADIENT_ACCUMULATION_STEPS: 1
+  LOGGING_STRATEGY: "steps"
+  LOGGING_STEPS: 150
+  OUTPUT_DIR: "checkpoints"
+  IS_FP16: true
+
+  YEAR: "2025"
+
+castorini/monot5-3b-msmarco:
+  ARCHITECTURE: "cross_encoder"
+  PRETRAINED_MODEL: "castorini/monot5-3b-msmarco"
+  TOKENIZER_PATH: "castorini/monot5-3b-msmarco"
+  TRAINING_SAMPLES_FILE: "dataset/task2_train_negatives_2025.json"
+  
+  LOSS_FUNCTION: "cross_entropy"
+  MODEL_TYPE: "seq2seq"
+  DYNAMIC_SAMPLING_STRATEGY: "hard"
+  MAX_NEGATIVES_PER_POSITIVE: 5
+
+  NUM_EPOCHS: 3
+  TRAIN_BATCH_SIZE: 1
+  EVAL_BATCH_SIZE: 1
+  GRADIENT_ACCUMULATION_STEPS: 2
+  LOGGING_STRATEGY: "steps"
+  LOGGING_STEPS: 150
+  OUTPUT_DIR: "checkpoints"
+  IS_FP16: true
+
+  YEAR: "2025"
